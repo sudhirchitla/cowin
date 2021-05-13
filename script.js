@@ -54,9 +54,13 @@ function createCenterCard(myCenter) {
             let availability = '';
             element.sessions.forEach(e => {
 
+                if (e.available_capacity > 0) 
+
                 availability += e.date +' Available:  '+ e.available_capacity +'  '+ e.vaccine +'<br>';
 
             })
+
+            if (availability == '') availability = 'No Slots Available';
         
 
         const cardHTML = `
@@ -148,6 +152,6 @@ form.addEventListener('submit', (e) => {
     if(user) {
         getUser(user)
 
-        search.value = ''
+//        search.value = ''
     }
 })
